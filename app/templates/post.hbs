@@ -1,7 +1,7 @@
 <article class="meow-text-content">
   <h2>{{model.title}}</h2>
   <p>{{model.author}}</p>
-  <p>{{model.date}}</p>
+  <p>{{moment-format model.date}}</p>
   <p>{{model.category}}</p>
   {{#each model.image as |image|}}
     <div class="meow-post-image-box">
@@ -14,7 +14,7 @@
   <footer>
     {{#link-to 'update' model.id}}Update Post{{/link-to}}
     <br>
-    <!-- {{#link-to 'delete' model.id}}Delete Post{{/link-to}} -->
+    <button {{action 'deletePost' model}} class="btn-link">Delete Post</button>
     <br>
     {{comment-form saveComment="saveComment" post=model}}
   </footer>

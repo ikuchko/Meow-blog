@@ -1,4 +1,11 @@
-<p>{{comment.date}}</p>
+<p>{{moment-from-now comment.date}}</p>
 <p>
-  {{comment.comment}}
+  {{#if updateFormIsShowing}}
+    {{textarea value=comment.comment id="updatedComment" class="form-control" rows="6"}}
+    <button {{action 'updateComment' comment}} class="btn btn-default">Save Comment</button>
+  {{else}}
+    {{comment.comment}}
+    <button {{action 'showUpdateForm'}} class="btn btn-default">Update</button>
+  {{/if}}
+  <button {{action 'deleteComment' comment}} class="btn btn-default">Delete</button>
 </p>

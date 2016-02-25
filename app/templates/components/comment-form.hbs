@@ -1,4 +1,4 @@
-{{#each post.comments as |comment|}}
+{{#each (comment-sort post) as |comment|}}
   {{comment-tile comment=comment}}
 {{/each}}
 <form>
