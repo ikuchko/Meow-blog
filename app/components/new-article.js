@@ -3,23 +3,23 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   imageList: [],
 
-  getParams() {
-    var params = {
-      category: this.get('category'),
-      author: this.get('author'),
-      title: this.get('title'),
-      body: this.get('body'),
-      image: this.get('imageList'),
-      date: new Date().getTime()
-    };
-    this.set('category', '');
-    this.set('author', '');
-    this.set('title', '');
-    this.set('image', '');
-    this.set('body', '');
-    this.set('imageList', []);
-    return params;
-  },
+  // getParams() {
+  //   var params = {
+  //     category: this.get('category'),
+  //     author: this.get('author'),
+  //     title: this.get('title'),
+  //     body: this.get('body'),
+  //     image: this.get('imageList'),
+  //     date: new Date().getTime()
+  //   };
+  //   this.set('category', '');
+  //   this.set('author', '');
+  //   this.set('title', '');
+  //   this.set('image', '');
+  //   this.set('body', '');
+  //   this.set('imageList', []);
+  //   return params;
+  // },
 
   actions: {
     addImage() {
@@ -33,11 +33,11 @@ export default Ember.Component.extend({
     save() {
       // var params = getParams()
       var params = {
-        category: this.get('category'),
-        author: this.get('author'),
-        title: this.get('title'),
-        body: this.get('body'),
-        image: this.get('imageList'),
+        category: this.get('category') || '',
+        author: this.get('author') || '',
+        title: this.get('title') || '',
+        body: this.get('body') || '',
+        image: this.get('imageList') || [],
         date: new Date().getTime()
       };
       this.set('category', '');
@@ -49,6 +49,12 @@ export default Ember.Component.extend({
       this.sendAction('save', params);
     },
 
+    updateImageList(post) {
+      this.set("imageList", this.get('imageList') || []);
+      this.get('imageList').pushObject({image: this.get('image')});
+      this.set('image', '');
+    },
+
     update(post) {
       // var params = getParams()
       var params = {
@@ -57,7 +63,6 @@ export default Ember.Component.extend({
         title: this.get('title'),
         body: this.get('body'),
         image: this.get('imageList'),
-        date: new Date().getTime()
       };
       this.set('category', '');
       this.set('author', '');
