@@ -1,0 +1,7 @@
+{{#link-to 'post' post.id}}
+  <div class="meow-post-info">
+    <h3>{{post.title}}</h3>
+    <p>{{post.date}}</p>
+  </div>
+  <img src={{post.image.firstObject.image}}/>
+{{/link-to}}

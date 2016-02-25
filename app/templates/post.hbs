@@ -1,0 +1,14 @@
+<article class="meow-text-content">
+  <h2>{{model.title}}</h2>
+  <p>{{model.author}}</p>
+  <p>{{model.date}}</p>
+  <p>{{model.category}}</p>
+  {{#each model.image as |image|}}
+    <div class="meow-post-image-box">
+      <img class="meow-post-image" src={{image.image}} alt="" />
+    </div>
+  {{/each}}
+  <section>
+    {{markdown-to-html markdown=model.body}}
+  </section>
+</article>

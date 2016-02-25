@@ -1,0 +1,165 @@
+@import 'bootstrap';
+
+$border-radius-base:  0px;
+$border-radius-large: 0px;
+$border-radius-small: 0px;
+$badge-border-radius: 0px;
+$pager-border-radius: 0px;
+
+$grey-light: #DCDCDC;
+$white: #fff;
+
+$left-margin-width: 180px;
+$tile-width: 2 * $left-margin-width;
+$post-padding: 20px;
+
+body {
+  background-color: $grey-light;
+}
+
+.navbar {
+  background-color: $white;
+  border-radius: 0px;
+  height: 50px;
+}
+
+@media (min-width: $screen-xs-min) {
+  .navbar {
+    position: absolute;
+    top: $left-margin-width;
+    height: 2 * $left-margin-width;
+    width: $left-margin-width;
+
+    .container {
+      width: 100%;
+    }
+  }
+}
+
+.meow-container {
+  width: 100%;
+}
+
+@media (min-width: $screen-xs-min) {
+  .meow-container {
+    width: 1 * $tile-width;
+    margin-left: $left-margin-width;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .meow-container {
+    width: 2 * $tile-width;
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .meow-container {
+    width: 3 * $tile-width;
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  .meow-container {
+    width: 4 * $tile-width;
+  }
+}
+
+.article-tile {
+  position: relative;
+  width: $tile-width;
+  height: $tile-width;
+  float: left;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .meow-post-info {
+    background-color: rgba(201, 227, 234, 0.8);
+    position: absolute;
+    width: $tile-width/2;
+    height: $tile-width/2;
+    top: $tile-width/2;
+    right: 0;
+    padding: 10px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 12px;
+    font-style: italic;
+  }
+}
+
+.meow-text-content {
+  background-color: rgba(255, 255, 255, .3);
+  padding: $post-padding;
+  width: 100%;
+
+  p {
+    clear: both;
+  }
+}
+
+.meow-post-image-box {
+  width: 100%;
+
+  .meow-post-image {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .meow-text-content {
+    min-height: 3 * $left-margin-width;
+    width: 2 * $tile-width;
+
+    p {
+      clear: none;
+    }
+  }
+
+  .meow-post-image-box {
+    height: 2 * $tile-width;
+    position: relative;
+    float: left;
+    clear: left;
+    margin: $post-padding 0;
+
+    .meow-post-image {
+      position: absolute;
+      left: -$post-padding;
+      width: 2 * $tile-width;
+      height: 2 * $tile-width;
+    }
+  }
+
+  .meow-post-image-box:nth-of-type(2n),
+  .meow-post-image-box:nth-of-type(3n) {
+    width: $tile-width;
+    height: $tile-width;
+    float: none;
+    clear: none;
+
+    .meow-post-image {
+      position: absolute;
+      left: 2 * $tile-width - $post-padding;
+      top: $post-padding / 2;
+      width: $tile-width;
+      height: $tile-width;
+    }
+  }
+  .meow-post-image-box:nth-of-type(2n) {
+    margin-bottom: 0;
+  }
+
+  .meow-post-image-box:nth-of-type(3n) {
+    margin-top: 0;
+  }
+}
