@@ -10,7 +10,6 @@ export default Ember.Component.extend({
     },
 
     updateComment(commentToUpdate) {
-      console.log('test')
       this.set('updateFormIsShowing', false)
       var params = {
         comment: this.get('updatedComment'),
