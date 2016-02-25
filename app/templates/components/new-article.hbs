@@ -1,61 +1,60 @@
-<div class="meow-text-content">
-  <h2>Add a New Post</h2>
+<form class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-2" for="title">Title</label>
+    <div class="col-sm-10">
+      {{input value=title id="title" class="form-control"}}
+    </div>
+  </div>
 
-  <form class="form-horizontal">
-    <div class="form-group">
-      <label class="col-sm-2" for="title">Title</label>
-      <div class="col-sm-10">
-        {{input value=title id="title" class="form-control"}}
+  <div class="form-group">
+    <label class="col-sm-2" for="body">Content</label>
+    <div class="col-sm-10">
+      {{textarea value=body id="body" cols="80" rows="20" class="form-control"}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2" for="author">Author</label>
+    <div class="col-sm-10">
+      {{input value=author id="author" class="form-control"}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2" for="image">Images</label>
+    <div class="col-sm-10">
+      <div class="input-group">
+        {{input value=image id="image" class="form-control"}}
+        <span class="input-group-btn">
+          <button {{action 'addImage'}} class="btn btn-default">Upload</button>
+        </span>
       </div>
     </div>
+  </div>
 
-    <div class="form-group">
-      <label class="col-sm-2" for="body">Content</label>
-      <div class="col-sm-10">
-        {{textarea value=body id="body" cols="80" rows="20" class="form-control"}}
+  <div class="form-group">
+    {{#each imageList as |image|}}
+      <div class="col-sm-3">
+        <a {{action 'removeImage' image}} class="thumbnail">
+          <img src={{image.image}} alt="remove image"/>
+          <span>x</span>
+        </a>
       </div>
-    </div>
+    {{/each}}
+  </div>
 
-    <div class="form-group">
-      <label class="col-sm-2" for="author">Author</label>
-      <div class="col-sm-10">
-        {{input value=author id="author" class="form-control"}}
-      </div>
+  <div class="form-group">
+    <label class="col-sm-2" for="category">Tags</label>
+    <div class="col-sm-10">
+      {{input value=category id="category" class="form-control"}}
     </div>
+  </div>
 
-    <div class="form-group">
-      <label class="col-sm-2" for="image">Images</label>
-      <div class="col-sm-10">
-        <div class="input-group">
-          {{input value=image id="image" class="form-control"}}
-          <span class="input-group-btn">
-            <button {{action 'addImage'}} class="btn btn-default">Upload</button>
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      {{#each imageList as |image|}}
-        <div class="col-sm-3">
-          <a {{action 'removeImage' image}} class="thumbnail">
-            <img src={{image.image}} alt="remove image"/>
-            <span>x</span>
-          </a>
-        </div>
-      {{/each}}
-    </div>
-
-    <div class="form-group">
-      <label class="col-sm-2" for="category">Tags</label>
-      <div class="col-sm-10">
-        {{input value=category id="category" class="form-control"}}
-      </div>
-    </div>
-
-    <div class="form-group">
+  <div class="form-group">
+    {{#if post}}
+      <button {{action 'update' post}} class="btn btn-primary btn-lg btn-block">Save article</button>
+    {{else}}
       <button {{action 'save'}} class="btn btn-primary btn-lg btn-block">Save article</button>
-    </div>
-  </form>
-
-</div>
+    {{/if}}
+  </div>
+</form>
