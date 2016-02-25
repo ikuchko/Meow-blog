@@ -1,0 +1,10 @@
+{{#each post.comments as |comment|}}
+  {{comment-tile comment=comment}}
+{{/each}}
+<form>
+  <div class="form-group">
+    <label for="comment">New Comment</label>
+    {{textarea value=comment id="comment" class="form-control" rows="6"}}
+  </div>
+  <button {{action 'saveComment'}} class="btn btn-default">Save Comment</button>
+</form>

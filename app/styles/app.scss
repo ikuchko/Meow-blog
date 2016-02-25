@@ -163,3 +163,13 @@ body {
     margin-top: 0;
   }
 }
+
+footer {
+  clear: both;
+
+  .comment-tile {
+    background-color: white;
+    margin: $post-padding 0;
+    padding: $post-padding;
+  }
+}

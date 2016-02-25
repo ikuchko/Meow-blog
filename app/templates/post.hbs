@@ -11,6 +11,11 @@
   <section>
     {{markdown-to-html markdown=model.body}}
   </section>
+  <footer>
+    {{#link-to 'update' model.id}}Update Post{{/link-to}}
+    <br>
+    <!-- {{#link-to 'delete' model.id}}Delete Post{{/link-to}} -->
+    <br>
+    {{comment-form saveComment="saveComment" post=model}}
+  </footer>
 </article>
-
-{{#link-to 'update' model.id}}Update Post{{/link-to}}
