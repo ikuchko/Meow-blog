@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'meow',
     environment: environment,
     contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
-    firebase: 'https://meow-blog.firebaseio.com/',
+    firebase: 'https://meow-bloging.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {

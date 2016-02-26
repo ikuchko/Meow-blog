@@ -12,7 +12,7 @@ export default Ember.Component.extend({
       this.sendAction('saveComment', params);
     },
 
-    replyToComment(params, parentComment) {
+    replyToComment(params) {
       this.sendAction('replyToComment', params);
     }
   }

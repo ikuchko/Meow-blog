@@ -8,12 +8,12 @@ export default Ember.Component.extend({
       this.set('replyFormIsShowing', true);
     },
 
-    replyToComment(parentComment) {
-      console.log(this.get('comment'))
+    replyToComment() {
       var params = {
         comment: this.get('comment'),
         date: new Date().getTime(),
         parentComment: this.get('parentComment')
+
       };
       this.sendAction('replyToComment', params);
       this.set('replyFormIsShowing', false);

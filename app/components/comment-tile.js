@@ -27,7 +27,7 @@ export default Ember.Component.extend({
       commentToDelete.destroyRecord();
     },
 
-    replyToComment(params, parentComment) {
+    replyToComment(params) {
       this.sendAction('replyToComment', params);
     }
   }
