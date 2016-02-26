@@ -1,0 +1,6 @@
+{{#if replyFormIsShowing}}
+  {{textarea value=comment class="form-control" rows="6" placeholder="Reply here..."}}
+  <button {{action 'replyToComment' parentComment}} class="btn btn-default btn-sm">Save Comment</button>
+{{else}}
+  <button {{action 'showReplyForm'}} class="btn btn-default btn-link">Reply</button>
+{{/if}}

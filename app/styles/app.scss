@@ -1,4 +1,5 @@
 @import 'bootstrap';
+@import "bower_components/font-awesome/scss/font-awesome";
 
 $border-radius-base:  0px;
 $border-radius-large: 0px;
@@ -7,7 +8,9 @@ $badge-border-radius: 0px;
 $pager-border-radius: 0px;
 
 $grey-light: #DCDCDC;
+$grey-blue: #86becb;
 $white: #fff;
+$white-transparent: rgba(255, 255, 255, 0.8);
 
 $left-margin-width: 180px;
 $tile-width: 2 * $left-margin-width;
@@ -77,13 +80,21 @@ body {
   }
 
   .meow-post-info {
-    background-color: rgba(201, 227, 234, 0.8);
+    opacity: .8;
+    background-color: $grey-blue;
     position: absolute;
     width: $tile-width/2;
     height: $tile-width/2;
     top: $tile-width/2;
     right: 0;
     padding: 10px;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+  }
+
+  .meow-post-info:hover {
+    opacity: 1;
   }
 
   h3 {
@@ -93,6 +104,10 @@ body {
   p {
     font-size: 12px;
     font-style: italic;
+  }
+
+  a {
+    color: black;
   }
 }
 
@@ -168,8 +183,26 @@ footer {
   clear: both;
 
   .comment-tile {
-    background-color: white;
+    border-left: 1px dotted $grey-light;
+    background-color: $white;
     margin: $post-padding 0;
     padding: $post-padding;
+
+    .comment-age {
+      font-size: 10px;
+    }
+
+    .btn {
+      margin: 5px 5px 5px 0;
+    }
+
+    .btn-link {
+      padding: 0;
+    }
+  }
+
+  .comment-tile .comment-tile {
+    margin: 0;
+    padding: $post-padding 0 0 $post-padding ;
   }
 }

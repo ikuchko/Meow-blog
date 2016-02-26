@@ -1,5 +1,5 @@
 {{#each (comment-sort post.comments) as |comment|}}
-  {{comment-tile comment=comment}}
+  {{comment-tile comment=comment replyToComment="replyToComment"}}
 {{/each}}
 <form>
   <div class="form-group">

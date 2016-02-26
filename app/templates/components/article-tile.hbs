@@ -2,6 +2,7 @@
   <div class="meow-post-info">
     <h3>{{post.title}}</h3>
     <p>{{moment-from-now post.date}}</p>
+    {{rating post.comments}}
   </div>
   <img src={{post.image.firstObject.image}}/>
 {{/link-to}}

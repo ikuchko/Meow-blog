@@ -1,11 +1,21 @@
-<p>{{moment-from-now comment.date}}</p>
-<p>
-  {{#if updateFormIsShowing}}
-    {{textarea value=comment.comment id="updatedComment" class="form-control" rows="6"}}
-    <button {{action 'updateComment' comment}} class="btn btn-default">Save Comment</button>
-  {{else}}
+<p class="comment-age">{{moment-from-now comment.date}}</p>
+
+{{#if updateFormIsShowing}}
+  {{textarea value=comment.comment id="updatedComment" class="form-control" rows="6"}}
+  <button {{action 'updateComment' comment}} class="btn btn-default btn-sm">Save Comment</button>
+{{else}}
+  <p>
     {{comment.comment}}
-    <button {{action 'showUpdateForm'}} class="btn btn-default">Update</button>
+  </p>
+
+  <button {{action 'showUpdateForm'}} class="btn btn-default btn-sm">Update</button>
+{{/if}}
+<button {{action 'deleteComment' comment}} class="btn btn-default btn-sm">Delete</button>
+
+{{comment-reply parentComment=comment replyToComment="replyToComment"}}
+
+{{#each comment.replies as |reply|}}
+  {{#if reply.comment}}
+    {{comment-tile comment=reply replyToComment="replyToComment"}}
   {{/if}}
-  <button {{action 'deleteComment' comment}} class="btn btn-default">Delete</button>
-</p>
+{{/each}}

@@ -6,7 +6,7 @@ export default Ember.Component.extend({
 
   actions: {
     showUpdateForm() {
-      this.set('updateFormIsShowing', true)
+      this.set('updateFormIsShowing', true);
     },
 
     updateComment(commentToUpdate) {
@@ -25,6 +25,10 @@ export default Ember.Component.extend({
 
     deleteComment(commentToDelete) {
       commentToDelete.destroyRecord();
+    },
+
+    replyToComment(params, parentComment) {
+      this.sendAction('replyToComment', params);
     }
   }
 });

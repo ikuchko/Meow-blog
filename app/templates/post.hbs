@@ -16,6 +16,6 @@
     <br>
     <button {{action 'deletePost' model}} class="btn-link">Delete Post</button>
     <br>
-    {{comment-form saveComment="saveComment" post=model}}
+    {{comment-form saveComment="saveComment" replyToComment="replyToComment" post=model}}
   </footer>
 </article>
